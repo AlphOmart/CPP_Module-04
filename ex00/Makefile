@@ -1,23 +1,27 @@
 #---COMMON_VAR-----------------------------------
 NAME		=	Polymorphism
 CXX			=	c++
-FLAGS		=	-std=c++98 -Wall -Werror -Wextra -fsanitize=address
-#---PHILO_VAR----------------------------------
+FLAGS		=	-std=c++98 -Wall -Werror -Wextra
+#---PROJECT+VAR----------------------------------
 SRC			=	main.cpp \
 				Animal.cpp \
 				Dog.cpp \
-				Cat.cpp
+				Cat.cpp \
+				WrongAnimal.cpp \
+				WrongCat.cpp
 
 OBJS_DIR	=	.OBJS/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 HEADER		=	Animal.hpp \
 				Cat.hpp \
-				Dog.hpp
+				Dog.hpp \
+				WrongAnimal.hpp \
+				WrongCat.hpp
 #---RULES----------------------------------------
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS)
+$(NAME):		$(OBJS) $(HEADER)
 				@echo "\033[0;33m\nCOMPILING Polymorphism...\n"
 				@$(CXX) $(FLAGS) $(OBJS) -o $@
 				@echo "\033[1;32m./Polymorphism created\n"

@@ -7,8 +7,10 @@ class Dog : public Animal
 {
 public:
 	Dog( void );
+	Dog(const Dog& original);
 	~Dog( void );
 
+	Dog&	operator=(const Dog& original);
 	void	makeSound( void ) const;
 };
 

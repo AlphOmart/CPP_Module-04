@@ -1,17 +1,39 @@
 #include "Cat.hpp"
 
-Cat::Cat( void ) : Animal()
+////////////////////////////////////////////////////////////////////
+///////////////////// Overload Operator ////////////////////////////
+////////////////////////////////////////////////////////////////////
+
+Cat::Cat(void) : Animal()
 {
-	std::cout << "default Cat constructor called!" << std::endl;
+	std::cout << "\x1b[33m" <<  "default Cat constructor called!" << "\x1b[0m" << std::endl;
 	this->_type = "Cat";
 }
-
-Cat::~Cat( void )
+Cat::Cat(const Cat& original) : Animal(original)
 {
-	std::cout << "Cat destructor called!" << std::endl;
+	std::cout << "\x1b[33m" << "Copy Cat constructor called !" << "\x1b[0m" << std::endl;
+	*this = original;
+}
+Cat::~Cat(void)
+{
+	std::cout << "\x1b[33m" <<  "Cat destructor called!" << "\x1b[0m" << std::endl;
 }
 
+////////////////////////////////////////////////////////////////////
+///////////////////// Overload Operator ////////////////////////////
+////////////////////////////////////////////////////////////////////
+
+Cat& Cat::operator=(const Cat& original)
+{
+	if (this == &original)
+		return (*this);
+	this->_type = original._type;
+	return (*this);
+}
+////////////////////////////////////////////////////////////////////
+///////////////////// Overload Operator ////////////////////////////
+////////////////////////////////////////////////////////////////////
 void	Cat::makeSound( void ) const
 {
-	std::cout << "*MEOW*" << std::endl;
+	std::cout <<  "*MEOW*" << std::endl;
 }
