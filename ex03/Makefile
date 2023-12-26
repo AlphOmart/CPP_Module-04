@@ -6,14 +6,18 @@ FLAGS		=	-std=c++98 -Wall -Werror -Wextra
 SRC			=	main.cpp \
 				AMateria.cpp \
 				Ice.cpp \
-				Cure.cpp
+				Cure.cpp \
+				ICharacter.cpp \
+				Character.cpp
 
 
 OBJS_DIR	=	.OBJS/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 HEADER		=	AMateria.hpp \
+				Ice.hpp \
 				Cure.hpp \
-				Ice.hpp
+				ICharacter.hpp \
+				Character.hpp
 #---RULES----------------------------------------
 
 all:			$(NAME)

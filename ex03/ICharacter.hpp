@@ -3,8 +3,15 @@
 
 class ICharacter
 {
+private:
+	std::string		_name;
+	Amateria*		_inventory[4];
 public:
-	virtual			~ICharacter();
+	ICharacter(void);
+	ICharacter(const ICharacter& original);
+	virtual ~ICharacter(void);
+	ICharacter&		operator=(const ICharacter& original);
+
 	virtual			std::string const& getName() const = 0;
 	virtual void	equip(AMateria* m) = 0;
 	virtual void	unequip(int index) = 0;
