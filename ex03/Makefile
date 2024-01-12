@@ -10,7 +10,8 @@ SRC			=	main.cpp \
 				ICharacter.cpp \
 				Character.cpp \
 				IMateriaSource.cpp \
-				MateriaSource.cpp
+				MateriaSource.cpp \
+				Floor.cpp
 
 OBJS_DIR	=	.OBJS/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
@@ -20,7 +21,8 @@ HEADER		=	AMateria.hpp \
 				ICharacter.hpp \
 				Character.hpp \
 				IMateriaSource.hpp \
-				MateriaSource.hpp
+				MateriaSource.hpp \
+				Floor.hpp
 #---RULES----------------------------------------
 
 all:			$(NAME)

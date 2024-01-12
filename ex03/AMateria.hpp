@@ -2,6 +2,7 @@
 # define AMATERIA_HPP
 
 #include <iostream>
+
 class ICharacter;
 
 class AMateria
@@ -16,7 +17,7 @@ public:
 
 	AMateria&	operator=(const AMateria& original);
 
-	std::string const&	getType(void) const; // Return the Materia type
+	std::string const&	getType(void) const;
 	virtual	AMateria*	clone(void) const = 0;
 	virtual void		use(ICharacter& target) = 0;
 };

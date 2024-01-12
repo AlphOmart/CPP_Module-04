@@ -44,8 +44,7 @@ void	Character::equip(AMateria* m)
 	{
 		if (this->_inventory[i] == NULL)
 		{
-			this->_inventory[i] = m;
-			std::cout << i << std::endl;
+			this->_inventory[i] = *m;
 			break;
 		}
 	}
@@ -64,5 +63,10 @@ void	Character::use(int index, ICharacter& target)
 		std::cout << "invalid index !" << std::endl;
 		return ;
 	}
-	_inventory[index]->use(target);
+	if (this->_inventory[index] == NULL)
+	{
+		std::cout << "No materia at this index !" << std::endl;
+		return ;
+	}
+	this->_inventory[index]->use(target);
 };

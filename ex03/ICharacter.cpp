@@ -41,7 +41,6 @@ void	ICharacter::equip(AMateria* m)
 		if (this->_inventory[i] == NULL)
 		{
 			this->_inventory[i] = m->clone() ;
-			// delete m;
 			break;
 		}
 	}
@@ -59,5 +58,7 @@ void	ICharacter::use(int index, ICharacter& target)
 		std::cout << "invalid index !" << std::endl;
 		return ;
 	}
-	this->_inventory[index]->use(target);
+	if (this->_inventory[index] != NULL)
+		this->_inventory[index]->use(target);
+	std::cout << "No materia at this index !" << std::endl;
 };

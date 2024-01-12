@@ -33,14 +33,3 @@ std::string const&	AMateria::getType(void) const
 {
 	return (this->_type);
 };
-
-AMateria*	AMateria::clone(void) const
-{
-	AMateria *test = new Cure();
-	return (test);
-};
-
-void	AMateria::use(ICharacter& target)
-{
-	std::cout << "* simple materia as no effect on " << target.getName() << " *" << std::endl;
-};

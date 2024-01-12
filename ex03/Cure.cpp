@@ -2,7 +2,7 @@
 
 Cure::Cure(void) : AMateria()
 {
-	this->_type = "Cure";
+	this->_type = "cure";
 };
 
 Cure::Cure(std::string const& type) : AMateria(type)

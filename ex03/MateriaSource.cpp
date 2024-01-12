@@ -4,14 +4,14 @@
 
 MateriaSource::MateriaSource(void)
 {
-	for (int i = 0; i < 4; ++i)
+	for (int i = 0; i < 4; i++)
 		this->_stock[i] = NULL;
 	this->_last = 0;
 }
 
 MateriaSource::~MateriaSource(void)
 {
-	for (int i = 0; i < 4; ++i)
+	for (int i = 0; i < 4; i++)
 		delete _stock[i];
 };
 
