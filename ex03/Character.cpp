@@ -48,7 +48,7 @@ std::string const&	Character::getName(void) const
 	return (this->_name);
 };
 
-void	Character::getInventory(void)
+void	Character::getInventory(void) const
 {
 	for (int i = 0; i < 4; ++i)
 	{

@@ -17,7 +17,7 @@ public:
 	Character&		operator=(const Character& original);
 
 	virtual			std::string const&	getName(void) const;
-	void			getInventory(void);
+	void			getInventory(void) const;
 	virtual void	equip(AMateria* m);
 	virtual void	unequip(int index);
 	virtual void	use(int index, ICharacter& target);

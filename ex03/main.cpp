@@ -33,6 +33,8 @@ int main(void)
 	((Character *)me)->getInventory();
 	me->use(0, *bob);
 
+	((MateriaSource *)src)->getStock();
+
 	delete bob;
 	delete me;
 	delete src;

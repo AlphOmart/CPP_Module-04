@@ -5,14 +5,13 @@ Floor::Floor()
 {
     _lst = new AMateria*[1];
     _lst[0] = NULL;
-    int i = 0;
-    while (_lst[i] != NULL)
-        std::cout << _lst[i]->getType() << std::endl;
 }
 
 Floor::Floor(const Floor& original)
 {
-    (void)original;
+    if (this == &original)
+       return ;
+    *this = original;
 }
 
 Floor::~Floor()
@@ -24,6 +23,21 @@ Floor::~Floor()
         i++;
     }
     delete[] _lst;
+}
+
+Floor&	Floor::operator=(const Floor& original)
+{
+    if (this == &original)
+        return (*this);
+    int i = 0;
+    while (original._lst[i] != NULL)
+        i++;
+    delete this->_lst;
+    this->_lst = new AMateria*[i + 1];
+    for (int j = 0; j < i; ++j)
+        this->_lst[j] = original._lst[j];
+    this->_lst[i] = NULL;
+    return (*this);
 }
 
 void Floor::addElement(AMateria** element)
