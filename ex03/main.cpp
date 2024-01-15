@@ -13,21 +13,28 @@ int main(void)
 
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
-	me->unequip(0);
-
-	delete tmp;
+	//me->unequip(0);
 
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
-
+	me->getInventory();
 	me->use(0, *bob);
 	me->use(1, *bob);
 	me->use(2, *bob);
+	me->equip(src->createMateria("ice"));
+	me->equip(src->createMateria("ice"));
+	me->equip(src->createMateria("cure"));
+	me->equip(src->createMateria("cure"));
+	me->getInventory();
+	me->unequip(0);
+	me->getInventory();
+	me->equip(src->createMateria("cure"));
+	me->getInventory();
+	me->use(0, *bob);
 
 	delete bob;
 	delete me;
 	delete src;
-	delete tmp;
 	return 0;
 }

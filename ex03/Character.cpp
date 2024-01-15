@@ -5,16 +5,18 @@ Character::Character(void) : ICharacter()
 	this->_name = "Unnamed";
 	for (int i = 0; i < 4; ++i)
 		this->_inventory[i] = NULL;
+	_garbage = new Floor();
 }
 
-Character::Character(const std::string& name) : ICharacter(name)
+Character::Character(const std::string& name) : ICharacter()
 {
 	this->_name = name;
 	for (int i = 0; i < 4; ++i)
 		this->_inventory[i] = NULL;
+	_garbage = new Floor();
 }
 
-Character::Character(const Character& original) : ICharacter(original)
+Character::Character(const Character& original) : ICharacter()
 {
 	*this = original;
 }
@@ -35,13 +37,27 @@ Character&	Character::operator=(const Character& original)
 	this->_name = original._name;
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = original._inventory[i];
+	delete _garbage;
+	_garbage = original._garbage;
 	return (*this);
-};
+}
 
 std::string const&	Character::getName(void) const
 {
 	return (this->_name);
 };
+
+void	Character::getInventory(void)
+{
+	for (int i = 0; i < 4; ++i)
+	{
+		if (this->_inventory[i] != NULL)
+			std::cout <<"\x1b[32mInventory[" << i << "] = " << this->_inventory[i]->getType() << "\x1b[0m" << std::endl;
+		else
+			std::cout << "\x1b[32mInventory[" << i << "] = no materia\x1b[0m" << std::endl;
+	}
+	std::cout << std::endl;
+}
 
 void	Character::equip(AMateria* m)
 {
@@ -50,9 +66,12 @@ void	Character::equip(AMateria* m)
 		if (this->_inventory[i] == NULL)
 		{
 			this->_inventory[i] = m->clone();
-			break;
+			delete m;
+			return ;
 		}
 	}
+	std::cout << "\x1b[38;2;200;0;0mInventory is full\x1b[0m" << std::endl;
+	delete m;
 }
 
 void Character::unequip(int index)
@@ -64,7 +83,6 @@ void Character::unequip(int index)
 	}
 	if (this->_inventory[index] != NULL)
 	{
-		std::cout << "non"<<std::endl;
 		this->_garbage->addElement(&(_inventory[index]));
 		this->_inventory[index] = NULL;
 	}
@@ -75,13 +93,13 @@ void	Character::use(int index, ICharacter& target)
 {
 	if (index < 0 || index >= 4)
 	{
-		std::cout << "invalid index !" << std::endl;
+		std::cout << "\x1b[31minvalid index !\x1b[0m" << std::endl;
 		return ;
 	}
 	if (this->_inventory[index] == NULL)
 	{
-		std::cout << "No materia at this index !" << std::endl;
+		std::cout << "\x1b[31mNo materia at this index !\x1b[0m" << std::endl;
 		return ;
 	}
 	this->_inventory[index]->use(target);
-};
+}

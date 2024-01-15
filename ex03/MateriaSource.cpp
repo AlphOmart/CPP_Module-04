@@ -6,7 +6,6 @@ MateriaSource::MateriaSource(void)
 {
 	for (int i = 0; i < 4; i++)
 		this->_stock[i] = NULL;
-	this->_last_type = "ice";
 }
 
 MateriaSource::~MateriaSource(void)
@@ -17,7 +16,8 @@ MateriaSource::~MateriaSource(void)
 
 void	MateriaSource::learnMateria(AMateria* m)
 {
-	for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < 4; ++i)
+{
 		if (_stock[i] == NULL)
 		{
 			_stock[i] = m->clone();
@@ -26,7 +26,7 @@ void	MateriaSource::learnMateria(AMateria* m)
 		}
 	}
 	delete m;
-	std::cout << "Error: inventory is full" << std::endl;
+	std::cout << "Error: stock is full" << std::endl;
 }
 
 AMateria*	MateriaSource::createMateria(std::string const& type)
