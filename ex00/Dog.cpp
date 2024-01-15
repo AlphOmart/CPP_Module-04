@@ -7,7 +7,7 @@
 Dog::Dog( void ) : Animal()
 {
 	std::cout << "\x1b[38;2;255;165;0m" << "default Dog constructor called!" << "\x1b[0m" << std::endl;
-	this->_type = "Dog";
+	this->type = "Dog";
 }
 
 Dog::Dog(const Dog& original) : Animal(original)
@@ -20,7 +20,7 @@ Dog&	Dog::operator=(const Dog& original)
 {
 	if (this == &original)
 		return(*this);
-	this->_type = original._type;
+	this->type = original.type;
 	return (*this);
 }
 

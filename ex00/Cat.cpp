@@ -7,7 +7,7 @@
 Cat::Cat(void) : Animal()
 {
 	std::cout << "\x1b[33m" <<  "default Cat constructor called!" << "\x1b[0m" << std::endl;
-	this->_type = "Cat";
+	this->type = "Cat";
 }
 Cat::Cat(const Cat& original) : Animal(original)
 {
@@ -27,7 +27,7 @@ Cat& Cat::operator=(const Cat& original)
 {
 	if (this == &original)
 		return (*this);
-	this->_type = original._type;
+	this->type = original.type;
 	return (*this);
 }
 ////////////////////////////////////////////////////////////////////

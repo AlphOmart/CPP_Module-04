@@ -1,6 +1,6 @@
 #---COMMON_VAR-----------------------------------
 NAME		=	Polymorphism
-CXX			=	c++
+CXX			=	g++
 FLAGS		=	-std=c++98 -Wall -Werror -Wextra -g3
 #---PROJECT+VAR----------------------------------
 SRC			=	main.cpp \

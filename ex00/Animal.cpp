@@ -7,7 +7,7 @@
 Animal::Animal(void)
 {
 	std::cout << "\x1b[32m" << "default animal constructor called !" << "\x1b[0m" << std::endl;
-	this->_type = "Animal";
+	this->type = "Animal";
 }
 
 Animal::Animal(const Animal& original)
@@ -27,7 +27,7 @@ Animal& Animal::operator=(const Animal& original)
 {
 	if (this == &original)
 		return (*this);
-	this->_type = original._type;
+	this->type = original.type;
 	return (*this);
 }
 
@@ -37,7 +37,7 @@ Animal& Animal::operator=(const Animal& original)
 
 const std::string&	Animal::getType( void ) const
 {
-	return (this->_type);
+	return (this->type);
 }
 
 void	Animal::makeSound( void ) const

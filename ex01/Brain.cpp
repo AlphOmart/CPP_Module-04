@@ -3,7 +3,7 @@
 Brain::Brain(void)
 {
 	std::cout << "\x1b[34m" << "Brain default constructor called !" << "\x1b[0m" << std::endl;
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 100; ++i)
 		this->_ideas[i] = "nothing";
 }
 
@@ -15,7 +15,7 @@ Brain::Brain(const Brain& original)
 
 Brain::~Brain(void)
 {
-	std::cout << "\x1b[34m" << "Brain copy destructor called !" << "\x1b[0m" << std::endl;
+	std::cout << "\x1b[34m" << "Brain destructor called !" << "\x1b[0m" << std::endl;
 }
 
 Brain&	Brain::operator=(const Brain& original)
