@@ -3,7 +3,7 @@
 WrongCat::WrongCat(void): WrongAnimal()
 {
 	std::cout << "\x1b[38;2;200;0;0m" <<"WrongCat default constructor called !" << "\x1b[0m" << std::endl;
-	this->_type = "WrongCat";
+	this->type = "WrongCat";
 }
 
 WrongCat::WrongCat(const WrongCat& original): WrongAnimal(original)
@@ -26,5 +26,5 @@ WrongCat&	WrongCat::operator=(const WrongCat& original)
 
 void	WrongCat::makeSound(void)const
 {
-	std::cout << "cdsifgsbisdcbdsc" << std::endl;
+	std::cout << "* MEOW *" << std::endl;
 }

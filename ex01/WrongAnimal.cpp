@@ -3,7 +3,7 @@
 WrongAnimal::WrongAnimal(void)
 {
 	std::cout << "\x1b[31m" << "WrongAnimal default constructor called !" << "\x1b[0m" << std::endl;
-	this->_type = "WrongAnimal";
+	this->type = "WrongAnimal";
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& original)
@@ -25,7 +25,7 @@ WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& original)
 
 const std::string& WrongAnimal::getType() const
 {
-	return (this->_type);
+	return (this->type);
 }
 
 void		WrongAnimal::makeSound(void) const

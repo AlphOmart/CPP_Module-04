@@ -4,7 +4,7 @@ Brain::Brain(void)
 {
 	std::cout << "\x1b[34m" << "Brain default constructor called !" << "\x1b[0m" << std::endl;
 	for (int i = 0; i < 100; ++i)
-		this->_ideas[i] = "nothing";
+		this->ideas[i] = "nothing";
 }
 
 Brain::Brain(const Brain& original)
@@ -23,6 +23,6 @@ Brain&	Brain::operator=(const Brain& original)
 	if (this == &original)
 		return (*this);
 	for (int i = 0; i < 100; i++)
-		this->_ideas[i] = original._ideas[i];
+		this->ideas[i] = original.ideas[i];
 	return (*this);
 }

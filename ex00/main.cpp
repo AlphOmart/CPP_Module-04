@@ -2,7 +2,6 @@
 #include "Dog.hpp"
 #include "WrongCat.hpp"
 
-//TODO type
 int main(void)
 {
 	const Animal*		meta = new Animal;

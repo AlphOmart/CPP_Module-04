@@ -4,10 +4,10 @@
 Cat::Cat(void) : Animal()
 {
 	std::cout << "\x1b[33m" <<  "default Cat constructor called!" << "\x1b[0m" << std::endl;
-	this->_type = "Cat";
+	this->type = "Cat";
 	this->_brain = new Brain();
 	for (int i = 0; i < 100; i++)
-		this->_brain->_ideas[i] = "sleep";
+		this->_brain->ideas[i] = "sleep";
 }
 Cat::Cat(const Cat& original) : Animal(original)
 {
@@ -27,7 +27,7 @@ Cat& Cat::operator=(const Cat& original)
 	delete this->_brain;
 	this->_brain = new Brain();
 	*(this->_brain) = *(original._brain);
-	this->_type = original._type;
+	this->type = original.type;
 	return (*this);
 }
 
@@ -38,7 +38,7 @@ void	Cat::makeSound( void ) const
 
 std::string	Cat::getBrainIdeas(const unsigned int& index) const
 {
-	return (this->_brain->_ideas[index]);
+	return (this->_brain->ideas[index]);
 }
 
 void	Cat::setBrainIdeas(const std::string& new_ideas, const unsigned int& index)const
@@ -48,6 +48,6 @@ void	Cat::setBrainIdeas(const std::string& new_ideas, const unsigned int& index)
 		std::cout << "I can't think so much" << std::endl;
 		return ;
 	}
-	this->_brain->_ideas[index] = new_ideas;
+	this->_brain->ideas[index] = new_ideas;
 	return ;
 }
