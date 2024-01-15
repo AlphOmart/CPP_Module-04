@@ -10,7 +10,7 @@ protected:
 public:
 	Animal(void);
 	Animal(const Animal& original);
-	virtual	~Animal(void);
+	~Animal(void);
 
 	Animal&				operator=(const Animal& original);
 

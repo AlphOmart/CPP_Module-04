@@ -13,18 +13,17 @@ int main(void)
 
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
-	std::cout << &tmp << std::endl;
-	std::cout << tmp << std::endl;
+	me->unequip(0);
+
+	delete tmp;
 
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
-	std::cout << &tmp << std::endl;
-	std::cout << tmp << std::endl;
 	ICharacter* bob = new Character("bob");
 
 	me->use(0, *bob);
 	me->use(1, *bob);
-//	me->use(2, *bob);
+	me->use(2, *bob);
 
 	delete bob;
 	delete me;

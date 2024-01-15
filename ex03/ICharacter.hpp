@@ -2,12 +2,13 @@
 # define ICHARACTER_HPP
 
 #include "AMateria.hpp"
-
+#include "Floor.hpp"
 class ICharacter
 {
 protected:
 	std::string	_name;
 	AMateria*	_inventory[4];
+	Floor*	_garbage;
 public:
 	ICharacter(void);
 	ICharacter(const std::string& name);

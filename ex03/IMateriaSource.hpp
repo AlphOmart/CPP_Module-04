@@ -7,7 +7,7 @@ class IMateriaSource
 {
 protected:
 	AMateria*		_stock[4];
-	unsigned int	_last;
+	std::string		_last_type;
 public:
 	virtual ~IMateriaSource() {};
 	virtual void learnMateria(AMateria*) = 0;

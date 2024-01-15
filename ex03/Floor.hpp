@@ -14,7 +14,7 @@ public:
 
 	Floor&	operator=(const Floor& original);
 
-	void	addElement(const AMateria& element);
+	void	addElement(AMateria** element);
 };
 
 #endif

@@ -5,23 +5,28 @@ Character::Character(void) : ICharacter()
 	this->_name = "Unnamed";
 	for (int i = 0; i < 4; ++i)
 		this->_inventory[i] = NULL;
-};
+}
 
 Character::Character(const std::string& name) : ICharacter(name)
 {
 	this->_name = name;
 	for (int i = 0; i < 4; ++i)
 		this->_inventory[i] = NULL;
-};
+}
 
 Character::Character(const Character& original) : ICharacter(original)
 {
 	*this = original;
-};
+}
 
 Character::~Character(void)
 {
-};
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i] != NULL)
+			delete this->_inventory[i];
+	}
+}
 
 Character&	Character::operator=(const Character& original)
 {
@@ -44,7 +49,7 @@ void	Character::equip(AMateria* m)
 	{
 		if (this->_inventory[i] == NULL)
 		{
-			this->_inventory[i] = *m;
+			this->_inventory[i] = m->clone();
 			break;
 		}
 	}
@@ -52,7 +57,17 @@ void	Character::equip(AMateria* m)
 
 void Character::unequip(int index)
 {
-	(void)index;
+	if (index < 0 || 4 <= index)
+	{
+		std::cout << "invalid index !" << std::endl;
+		return;
+	}
+	if (this->_inventory[index] != NULL)
+	{
+		std::cout << "non"<<std::endl;
+		this->_garbage->addElement(&(_inventory[index]));
+		this->_inventory[index] = NULL;
+	}
 }
 
 
