@@ -7,7 +7,7 @@
 AAnimal::AAnimal(void)
 {
 	std::cout << "\x1b[32m" << "default animal constructor called !" << "\x1b[0m" << std::endl;
-	this->_type = "Animal";
+	this->type = "Animal";
 }
 
 AAnimal::AAnimal(const AAnimal& original)
@@ -27,7 +27,7 @@ AAnimal&	AAnimal::operator=(const AAnimal& original)
 {
 	if (this == &original)
 		return (*this);
-	this->_type = original._type;
+	this->type = original.type;
 	return (*this);
 }
 
@@ -37,22 +37,10 @@ AAnimal&	AAnimal::operator=(const AAnimal& original)
 
 const std::string&	AAnimal::getType( void ) const
 {
-	return (this->_type);
+	return (this->type);
 }
 
 void	AAnimal::makeSound( void ) const
 {
 	std::cout << "*Some Animals sounds!*" << std::endl;
-}
-
-std::string	AAnimal::getBrainIdeas(const unsigned int& index) const
-{
-	(void)index;
-	return ("");
-}
-
-void	AAnimal::setBrainIdeas(const std::string& new_ideas,  const unsigned int& index) const
-{
-	(void)new_ideas;
-	(void)index;
 }

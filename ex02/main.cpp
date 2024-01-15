@@ -4,8 +4,7 @@
 
 int main(void)
 {
-	// const AAnimal* Jo = new AAnimal();
-	// (void)Jo;
+	// const AAnimal Jo;
 	const AAnimal*	array[10];
 
 	for ( int i = 0; i < 5; i++ )
