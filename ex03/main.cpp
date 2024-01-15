@@ -18,7 +18,7 @@ int main(void)
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
-	me->getInventory();
+	((Character *)me)->getInventory();
 	me->use(0, *bob);
 	me->use(1, *bob);
 	me->use(2, *bob);
@@ -26,11 +26,11 @@ int main(void)
 	me->equip(src->createMateria("ice"));
 	me->equip(src->createMateria("cure"));
 	me->equip(src->createMateria("cure"));
-	me->getInventory();
+	((Character *)me)->getInventory();
 	me->unequip(0);
-	me->getInventory();
+	((Character *)me)->getInventory();
 	me->equip(src->createMateria("cure"));
-	me->getInventory();
+	((Character *)me)->getInventory();
 	me->use(0, *bob);
 
 	delete bob;

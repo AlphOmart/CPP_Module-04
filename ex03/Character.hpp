@@ -5,7 +5,7 @@
 
 class Character : public ICharacter
 {
-private:
+protected:
 	std::string	_name;
 	AMateria*	_inventory[4];
 	Floor*	_garbage;

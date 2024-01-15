@@ -28,6 +28,7 @@ Character::~Character(void)
 		if (this->_inventory[i] != NULL)
 			delete this->_inventory[i];
 	}
+	delete _garbage;
 }
 
 Character&	Character::operator=(const Character& original)
